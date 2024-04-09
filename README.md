@@ -1,5 +1,5 @@
 # useful_scripts
-My useful scripts
+Emily's Useful Scripts!!!
 
 ## script to make DASTools contig list needed for DASTools from fasta files
 ```
