@@ -22,7 +22,7 @@ sed -i 's/k127/_scaffold/g' $r_assembly &&
 cp $r_assembly $out_dir
 ```
 
-## script to make DASTools contig list needed for DASTools from fasta files
+## make contig list needed for DASTools from fasta files
 ```
 #input sample name here
 sample=<samplename>
