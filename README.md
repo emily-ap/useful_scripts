@@ -6,7 +6,7 @@ Emily's Useful Scripts!!!
 for i in `cat file.txt` ; do cp /path/to/directory/$i . ; done
 ```
 
-##Prep a megahit final.contigs.fa file for post-assembly processing & binning
+## Prep a megahit final.contigs.fa file for post-assembly processing & binning
 ```
 ##Script for renaming scaffolds within the assembly file and copying it to new directory
 o_assembly=<original assembly>
