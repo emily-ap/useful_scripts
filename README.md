@@ -4,7 +4,7 @@ Emily's Useful Scripts!!!
 
 ## use a text file to copy files from a separate directory 
 ```
-for i in file.txt ; do cp /path/to/directory/$i . ; done
+for i in `cat file.txt` ; do cp /path/to/directory/$i . ; done
 ```
 ## script to make DASTools contig list needed for DASTools from fasta files
 ```
