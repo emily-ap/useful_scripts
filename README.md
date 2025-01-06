@@ -9,15 +9,18 @@ for i in `cat file.txt` ; do cp /path/to/directory/$i . ; done
 ## prep a megahit final.contigs.fa file for post-assembly processing & binning
 ```
 ##Script for renaming scaffolds within the assembly file and copying it to new directory
-#when you use this script, do ./rename_contigs.sh <original file> <new file name> <output directory>
+#when you use this script, do ./rename_contigs.sh <original file> <unique sanmple ID>
 
 #rename the final.contigs.fa and then,
 #rename the scaffolds with the sample name with 'scaffold'
-mv $1 $2 &&
-sed -i "s/^>/>$2/" $2 &&
-sed -i 's/k127/_scaffold/g' $2 &&
-mkdir $3 &&
-cp $2 $3
+mv $1 $2-contigs.fa
+sed "s/^>/>$2/" $2-contigs.fa >> $2-renamedcontigs.fa &&
+sed -i 's/k127/_scaffold/g' $2-renamedcontigs.fa &&
+mkdir $2-renamedcontigs &&
+mv $2 $2-renamedcontigs &&
+mv $2-renamedcontigs.fa $2-renamedcontigs &&
+echo "done!"
+
 ```
 
 ## make contig list needed for DASTools from fasta files
