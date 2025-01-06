@@ -16,9 +16,10 @@ for i in `cat file.txt` ; do cp /path/to/directory/$i . ; done
 mv $1 $2-contigs.fa
 sed "s/^>/>$2/" $2-contigs.fa >> $2-renamedcontigs.fa &&
 sed -i 's/k127/_scaffold/g' $2-renamedcontigs.fa &&
-mkdir $2-renamedcontigs &&
-mv $2 $2-renamedcontigs &&
-mv $2-renamedcontigs.fa $2-renamedcontigs &&
+sed -i 's/\s.*//g' $2-renamedcontigs.fa
+mkdir $2-contigsdir &&
+mv $2-contigs.fa $2-contigsdir &&
+mv $2-renamedcontigs.fa $2-contigsdir &&
 echo "done!"
 
 ```
