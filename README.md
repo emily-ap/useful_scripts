@@ -1,6 +1,8 @@
 # useful_scripts
 Emily's Useful Scripts!!!
 
+### Basic useful scripts are listed below. More grouped useful scripts are in respective directories of this repo. 
+
 ## use a text file to copy files from a separate directory 
 ```
 for i in `cat file.txt` ; do cp /path/to/directory/$i . ; done
