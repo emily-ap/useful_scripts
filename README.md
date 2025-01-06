@@ -13,8 +13,8 @@ for i in `cat file.txt` ; do cp /path/to/directory/$i . ; done
 
 #rename the final.contigs.fa and then,
 #rename the scaffolds with the sample name with 'scaffold'
-mv final.contigs.fa $1 &&
-sed "s/^>/>$2/" $1 >> $2 &&
+mv $1 $2 &&
+sed -i "s/^>/>$2/" $2 &&
 sed -i 's/k127/_scaffold/g' $2 &&
 mkdir $3 &&
 cp $2 $3
