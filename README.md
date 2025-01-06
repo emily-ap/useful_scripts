@@ -1,7 +1,8 @@
 # useful_scripts
 Emily's Useful Scripts!!!
 
-### Basic useful scripts are listed below. More grouped useful scripts are in respective directories of this repo. 
+### Basic useful scripts are listed below. More grouped useful scripts are in respective directories of this repo. Available directories: 
+- binning --> gives some scripts to make binning with concoct, maxbin2, and metabat2 a bit easier. 
 
 ## use a text file to copy files from a separate directory 
 ```
