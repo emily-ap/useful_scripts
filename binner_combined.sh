@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 ###this is to be run once you have your chosen assembly and the mapping files all done 
 ##requirements, concoct, maxbin2, metabat2, and parallel
 
@@ -17,7 +15,7 @@
 
 #5 arg is your max threadcount 
 
-$6 arg is your min contig length to be considered for binning
+#$6 arg is your min contig length to be considered for binning
 
 ## first test if the output directory already exists and if not --> make it 
 
