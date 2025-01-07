@@ -44,24 +44,3 @@ merge_cutup_clustering.py $4/binners/concoct/bin_tmp/clustering_gt$6.csv >> $4/b
 extract_fasta_bins.py $2 $4/binners/concoct/bin_tmp/clustering_merged.csv --output_path $4/binners/concoct/BINS &&
 
 echo "concoct section has finished!"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
