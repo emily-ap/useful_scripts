@@ -29,4 +29,6 @@ jgi_summarize_bam_contig_depths --outputDepth $4/binners/metabat2/$1-depth.txt -
 
 metabat2 --seed 0221 -v -d --numThreads $5 --minCVSum 0 --minCV 0.1 --minContig $6 -i $2 -a $4/binners/metabat2/$1-depth.txt -o $4/binners/metabat2/bins && 
 
+rm cluster.log.* &&
+
 echo "metabat2 section has finished"
