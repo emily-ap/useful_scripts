@@ -20,6 +20,7 @@
 ## first test if the output directory already exists and if not --> make it 
 
 test -d $4 || mkdir -p $4
+test -d $4/binners || mkdir -p $4/binners
 mkdir $4/binners/concoct
 
 ## CONCOCT SECTION
