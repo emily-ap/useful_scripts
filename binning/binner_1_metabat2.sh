@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 ###this is to be run once you have your chosen assembly and the mapping files all done 
@@ -21,11 +20,12 @@
 ## first test if the output directory already exists and if not --> make it 
 
 test -d $4 || mkdir -p $4
+test -d $4/binners || mkdir -p $4/binners
 mkdir $4/binners/metabat2
 
 ## METABAT2 SECTION
 
-jgi_summarize_bam_contig_depth --outputDepth $4/binners/metabat2/$1-depth.txt --pairedContigs $4/binners/metabat2/$1-paired.txt --referenceFasta $2 $3/*.bam && 
+jgi_summarize_bam_contig_depths --outputDepth $4/binners/metabat2/$1-depth.txt --pairedContigs $4/binners/metabat2/$1-paired.txt --referenceFasta $2 $3/*.bam && 
 
 metabat2 --seed 0221 -v -d --numThreads $5 --minCVSum 0 --minCV 0.1 --minContig $6 -i $2 -a $4/binners/metabat2/$1-depth.txt -o $4/binners/metabat2/bins && 
 
