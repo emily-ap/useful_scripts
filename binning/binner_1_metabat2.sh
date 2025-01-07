@@ -23,6 +23,8 @@ test -d $4 || mkdir -p $4
 test -d $4/binners || mkdir -p $4/binners
 mkdir $4/binners/metabat2
 
+echo "Beginning to run metabat2 on $1 with a min. contig size of $6 and using the assembly file: $2. Coverage files will be taken from the $3 directory and all results will be put in the generated $4 directory." 
+
 ## METABAT2 SECTION
 
 jgi_summarize_bam_contig_depths --outputDepth $4/binners/metabat2/$1-depth.txt --pairedContigs $4/binners/metabat2/$1-paired.txt --referenceFasta $2 $3/*.bam && 
