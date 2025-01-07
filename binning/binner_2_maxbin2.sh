@@ -49,4 +49,4 @@ find ${maxbin_workdir} -type f -name "abundance_file_*" > ${maxbin_workdir}/abun
 
 run_MaxBin.pl -contig $2 -out ${maxbin_workdir}/bins/maxbin2_markerset40_bin -abund_list ${maxbin_workdir}/abundance/abund_list -min_contig_length $6 -thread $5 -prob_threshold 0.9 -markerset 40 && 
 
-echo "maxbin2 section has finished" &&
+echo "maxbin2 section has finished" 
