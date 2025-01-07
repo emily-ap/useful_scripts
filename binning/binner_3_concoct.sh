@@ -23,6 +23,8 @@ test -d $4 || mkdir -p $4
 test -d $4/binners || mkdir -p $4/binners
 mkdir $4/binners/concoct
 
+echo "Beginning to run concoct on $1 with a min. contig size of $6 and using the assembly file: $2. Coverage files will be taken from the $3 directory and all results will be put in the generated $4 directory." 
+
 ## CONCOCT SECTION
 
 mkdir $4/binners/concoct/tmp_concoct_files
