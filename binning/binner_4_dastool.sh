@@ -15,11 +15,10 @@
 
 ## first test if the output directory already exists and if not --> make it 
 
-test -d dastool_{$1}_out || mkdir -p binning_out
-test -d binning_out/dastool_prepfiles || mkdir -p binning_out/dastool_prepfiles
-mkdir binning_out/
+test -d dastool_${1}_out || mkdir -p dastool_${1}_out
+test -d dastool_${1}_out/prepfiles || mkdir -p dastool_${1}_out/prepfiles
 
-echo "Beginning to run concoct on $1 with a min. contig size of $6 and using the assembly file: $2. Coverage files will be taken from the $3 directory and all results will be put in the generated binning_out directory." 
+echo "Beginning to run DASTool on $1." 
 
 ## establish where the binners output bins are 
 
