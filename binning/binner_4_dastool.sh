@@ -26,4 +26,10 @@ mkdir binning_out/binners/concoct/tmp_concoct_files
 mkdir binning_out/binners/concoct/bin_tmp
 mkdir binning_out/binners/concoct/BINS
 
+# maxbin2 step 0 --> prepare the directories 
+
+mkdir binning_out/binners/maxbin2/abundance
+mkdir binning_out/binners/maxbin2/bins
+mkdir binning_out/binners/maxbin2/bins/maxbin2_markerset40_bin
+
 
