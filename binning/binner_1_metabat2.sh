@@ -11,25 +11,23 @@
 
 #3 arg is your path to the specified mapping files - these need to be all in their own directory  - DO NOT END this path in a slash, these should be sorted bams and their respecitve indexes, sorted bam endsing should be *-sorted.bam
 
-#4 arg is your output directory for the binning of that sample, do not put a slash at the end of this
+#4 arg is your max threadcount 
 
-#5 arg is your max threadcount 
-
-#$6 arg is your min contig length to be considered for binning
+#5 arg is your min contig length to be considered for binning
 
 ## first test if the output directory already exists and if not --> make it 
 
-test -d $4 || mkdir -p $4
-test -d $4/binners || mkdir -p $4/binners
-mkdir $4/binners/metabat2
+test -d binning_out || mkdir -p binning_out
+test -d binning_out/binners || mkdir -p binning_out/binners
+mkdir binning_out/binners/metabat2
 
-echo "Beginning to run metabat2 on $1 with a min. contig size of $6 and using the assembly file: $2. Coverage files will be taken from the $3 directory and all results will be put in the generated $4 directory." 
+echo "Beginning to run metabat2 on $1 with a min. contig size of $6 and using the assembly file: $2. Coverage files will be taken from the $3 directory and all results will be put in the generated binning_out directory." 
 
 ## METABAT2 SECTION
 
-jgi_summarize_bam_contig_depths --outputDepth $4/binners/metabat2/$1-depth.txt --pairedContigs $4/binners/metabat2/$1-paired.txt --referenceFasta $2 $3/*.bam && 
+jgi_summarize_bam_contig_depths --outputDepth binning_out/binners/metabat2/$1-depth.txt --pairedContigs binning_out/binners/metabat2/$1-paired.txt --referenceFasta $2 $3/*.bam && 
 
-metabat2 --seed 0221 -v -d --numThreads $5 --minCVSum 0 --minCV 0.1 --minContig $6 -i $2 -a $4/binners/metabat2/$1-depth.txt -o $4/binners/metabat2/bins && 
+metabat2 --seed 0221 -v -d --numThreads $5 --minCVSum 0 --minCV 0.1 --minContig $6 -i $2 -a binning_out/binners/metabat2/$1-depth.txt -o binning_out/binners/metabat2/bins && 
 
 rm cluster.log.* &&
 
