@@ -11,32 +11,30 @@
 
 #3 arg is your path to the specified mapping files - these need to be all in their own directory  - DO NOT END this path in a slash, these should be sorted bams and their respecitve indexes, sorted bam endsing should be *-sorted.bam
 
-#4 arg is your output directory for the binning of that sample, do not put a slash at the end of this
+#4 arg is your max threadcount 
 
-#5 arg is your max threadcount 
-
-#$6 arg is your min contig length to be considered for binning
+#5 arg is your min contig length to be considered for binning
 
 ## first test if the output directory already exists and if not --> make it 
 
-test -d $4 || mkdir -p $4
-test -d $4/binners || mkdir -p $4/binners
-mkdir $4/binners/maxbin2
+test -d binning_out || mkdir -p binning_out
+test -d binning_out/binners || mkdir -p binning_out/binners
+mkdir binning_out/binners/maxbin2
 
-echo "Beginning to run maxbin22 on $1 with a min. contig size of $6 and using the assembly file: $2. Coverage files will be taken from the $3 directory and all results will be put in the generated $4 directory." 
+echo "Beginning to run maxbin22 on $1 with a min. contig size of $6 and using the assembly file: $2. Coverage files will be taken from the $3 directory and all results will be put in the generated binning_out directory." 
 
 ## MAXBIN2 SECTION
 
 # maxbin2 step 0 --> prepare the directories 
 
-mkdir $4/binners/maxbin2/abundance
-mkdir $4/binners/maxbin2/bins
-mkdir $4/binners/maxbin2/bins/maxbin2_markerset40_bin
+mkdir binning_out/binners/maxbin2/abundance
+mkdir binning_out/binners/maxbin2/bins
+mkdir binning_out/binners/maxbin2/bins/maxbin2_markerset40_bin
 
 # maxbin2 step 1 --> makes the abundance files from the metabat2 depth file
 
-maxbin_workdir=$4/binners/maxbin2
-depthfile=$4/binners/metabat2/$1-depth.txt 
+maxbin_workdir=binning_out/binners/maxbin2
+depthfile=binning_out/binners/metabat2/$1-depth.txt 
 depthfile_ncol=$(awk -F'\t' '{print NF; exit}' ${depthfile}) 
 
 seq 4 2 ${depthfile_ncol} | parallel --jobs $5 cut -f1,{} -d"$'\t'" $depthfile '|' tail -n +2 '>' ${maxbin_workdir}/abundance/abundance_file_{} && 
