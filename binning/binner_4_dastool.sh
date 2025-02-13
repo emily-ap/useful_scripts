@@ -20,16 +20,16 @@
 
 ## first test if the output directory already exists and if not --> make it 
 
-test -d $4 || mkdir -p $4
-test -d $4/dastool_prepfiles || mkdir -p $4/dastool_prepfiles
-mkdir $4/
+test -d binning_out || mkdir -p binning_out
+test -d binning_out/dastool_prepfiles || mkdir -p binning_out/dastool_prepfiles
+mkdir binning_out/
 
-echo "Beginning to run concoct on $1 with a min. contig size of $6 and using the assembly file: $2. Coverage files will be taken from the $3 directory and all results will be put in the generated $4 directory." 
+echo "Beginning to run concoct on $1 with a min. contig size of $6 and using the assembly file: $2. Coverage files will be taken from the $3 directory and all results will be put in the generated binning_out directory." 
 
 ## establish where the binners output bins are 
 
-mkdir $4/binners/concoct/tmp_concoct_files
-mkdir $4/binners/concoct/bin_tmp
-mkdir $4/binners/concoct/BINS
+mkdir binning_out/binners/concoct/tmp_concoct_files
+mkdir binning_out/binners/concoct/bin_tmp
+mkdir binning_out/binners/concoct/BINS
 
 
