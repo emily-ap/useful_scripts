@@ -1,26 +1,21 @@
 #!/bin/bash
 
-### this is to be run once you have your chosen assembly and the mapping files all done 
-## requirements, dastool version, R (>v4, =v3 is good), pullseq, diamond
-# input directory needs to be 
-
-#I specify seed 0221 for myself. If you want a different seed or a random seed you need to manually go through and change this. 
+### this is to be run once other binning scripts (binner_1-3) have been run. 
+## requirements, dastool version, R (>v4, =v3 is good), pullseq, diamond or blastp
+# This script will run DasTool using all the output bins from binners 1-3 (metabat2, maxbin2, concoct) 
+# Run this in the directory where you're "binning_out" directory is!!!
 
 #1 is your sample
 
 #2 arg is your assembly 
 
-#3 arg is your path to the specified mapping files - these need to be all in their own directory  - DO NOT END this path in a slash, these should be sorted bams and their respecitve indexes, sorted bam endsing should be *-sorted.bam
+#3 arg is path to your miniconda directory (i.e., something like /home/eaguilarpine/miniconda3) - do not end this in a slash!
 
-#4 arg is your output directory for the binning of that sample, do not put a slash at the end of this
-
-#5 arg is your max threadcount 
-
-#$6 arg is your min contig length to be considered for binning
+#4 arg is your max threadcount 
 
 ## first test if the output directory already exists and if not --> make it 
 
-test -d binning_out || mkdir -p binning_out
+test -d dastool_{$1}_out || mkdir -p binning_out
 test -d binning_out/dastool_prepfiles || mkdir -p binning_out/dastool_prepfiles
 mkdir binning_out/
 
