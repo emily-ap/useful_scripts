@@ -50,9 +50,7 @@ cp ${2}/*.fa ${3}
 echo "Your original dastool output bin names and their associated new names are in the file: ${3}/${1}_rename.csv"
 echo "Your original dastool output bins will remain in ${2} - do with these as you wish"
 echo "Now moving on to renaming your bins" 
-
-cat ${3}/${1}_rename.csv | while IFS=, read orig new; do mv "$orig" "$new"; done
-
+sed 's/^/mv -vi "/;s/, /" "/;s/$/";/' < ${3}/${1}_rename.csv | bash - 
 echo "All done! Your bins' final resting place is now ${3}, as requested."
 
 
