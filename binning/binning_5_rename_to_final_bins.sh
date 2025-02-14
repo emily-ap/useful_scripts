@@ -1,6 +1,3 @@
-S1/dastool_S1_out/final_out_S1_DASTool_bins
-
-
 # run like this: ./binning_5_extract_dastool_bins.sh <full and final sample ID> <dastool OG bin output directory> <output directory> 
 # ./binning_5_extract_dastool_bins.sh GB4_5264_sponge_S1 S1/dastool_S1_out/final_out_S1_DASTool_bins final_bin_set_not_derep
 ## slashes matter at end of directories: DO NOT USE THEM (please :) ) 
