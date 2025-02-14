@@ -40,6 +40,11 @@ rm ${1}_2.txt
 rm ${1}_3.txt
 rm ${1}_4.txt
 
+# start moving things to output location 
+mkdir ${3}
+mv ${1}_rename.csv ${3}
+
+
 
 
 
