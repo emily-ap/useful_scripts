@@ -12,7 +12,7 @@
 
 # rename bins
 
-## get my list of bins
+## get list of bins
 ls ${2}/*.fa | xargs -n 1 basename>> ${1}_1.txt
 ## begin formatting list of bins 
 sed -i 's/$/,/g' ${1}_1.txt
@@ -34,6 +34,8 @@ sed -i 's/\s//g' ${1}_4.txt
 ## make final rename reference file 
 paste -d" " ${1}_1.txt ${1}_4.txt >> ${1}_rename.csv
 sed -i 's/\s//g' ${1}_rename.csv
+sed -i 's/^/${3}\//g' ${1}_rename.csv
+sed -i 's/,/,${3}\//g'
 
 ## remove reference files to get renaming file 
 rm ${1}_1.txt 
@@ -44,6 +46,18 @@ rm ${1}_4.txt
 # start moving things to output location 
 mkdir ${3}
 mv ${1}_rename.csv ${3}
+cp ${2}/*.fa ${3}
+echo "Your original dastool output bin names and their associated new names are in the file: ${3}/${1}_rename.csv"
+echo "Your original dastool output bins will remain in ${2} - do with these as you wish"
+echo "Now moving on to renaming your bins" 
+
+cat ${3}/${1}_rename.csv | while IFS=, read orig new; do mv "$orig" "$new"; done
+
+echo "All done! Your bins' final resting place is now ${3}, as requested."
+
+
+
+
 
 
 
