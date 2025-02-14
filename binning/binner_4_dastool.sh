@@ -19,7 +19,6 @@
 
 test -d dastool_${1}_out || mkdir -p dastool_${1}_out
 test -d dastool_${1}_out/prepfiles || mkdir -p dastool_${1}_out/prepfiles
-test -d dastool_${1}_out/final_out_${1} || mkdir -p dastool_${1}_out/final_out_${1}
 
 ## establish where the binners output bins are and make sure all bins end in ".fna"
 
