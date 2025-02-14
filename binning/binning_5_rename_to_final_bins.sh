@@ -35,7 +35,7 @@ sed -i 's/\s//g' ${1}_4.txt
 paste -d" " ${1}_1.txt ${1}_4.txt >> ${1}_rename.csv
 sed -i 's/\s//g' ${1}_rename.csv
 sed -i "s|^|${3}/|g" ${1}_rename.csv #use double quotes to make the shell expand variables 
-sed -i "s|,|, ${3}/|g" ${1}_rename.csv
+sed -i "s|,|,\s${3}/|g" ${1}_rename.csv
 
 ## remove reference files to get renaming file 
 rm ${1}_1.txt 
